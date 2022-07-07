@@ -1,16 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
-import './index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { UserProvider } from "./contexts/user.context";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.scss";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// Any component inside of the UserProvider can access the context value in the provider itself
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
